@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Te amo</title>
+    <style>
+      body {
+        background-color: transparent;
+        overflow: hidden;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        position: relative;
+      }
+
+      .image {
+        position: absolute;
+        width: 100px; /* ajuste o tamanho conforme necessário */
+        height: 100px; /* ajuste o tamanho conforme necessário */
+        animation: imageAnimation 2s infinite ease-out;
+      }
+
+      @keyframes imageAnimation {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-100px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .love-text {
+        font-size: 8em; /* ajuste o tamanho da fonte conforme necessário */
+        color: #ff4d4d; /* cor do texto */
+        z-index: 1; /* certifique-se de que o texto esteja acima das imagens */
+      }
+
+      .heart-icon {
+        color: #ff4d4d; /* cor do ícone do coração */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="love-text">Eu te amo</div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        createImages()
+      })
+
+      function createImages() {
+        const numberOfImages = 15 // ajuste conforme necessário
+        const container = document.body
+
+        for (let i = 0; i < numberOfImages; i++) {
+          createImage(container)
+        }
+      }
+
+      function createImage(container) {
+        const image = document.createElement('img')
+        image.className = 'image'
+        image.src = 'files/WhatsApp Image 2023-11-20 at 17.24.41.jpeg' // substitua pelo caminho da sua imagem
+        image.style.left = `${Math.random() * window.innerWidth}px`
+        image.style.top = `${Math.random() * window.innerHeight}px`
+        image.style.animationDuration = `${Math.random() * 2 + 1}s`
+        container.appendChild(image)
+      }
+    </script>
+  </body>
+</html>
